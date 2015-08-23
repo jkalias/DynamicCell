@@ -24,7 +24,7 @@ class MyController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(MyCell.identifier, forIndexPath: indexPath) as! MyCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(MyCell.identifier, forIndexPath: indexPath) as! UITableViewCell
         cell.layoutIfNeeded()
         return cell
     }

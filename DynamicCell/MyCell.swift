@@ -15,7 +15,7 @@ class MyCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .Default, reuseIdentifier: MyCell.identifier)
-        translatesAutoresizingMaskIntoConstraints = false
+        setTranslatesAutoresizingMaskIntoConstraints(false)
         photoImageView = UIImageView(image: UIImage(named: "photo"))
         photoImageView.contentMode = .ScaleAspectFit
         contentView.addSubview(photoImageView)
@@ -39,7 +39,7 @@ class MyCell: UITableViewCell {
         super.updateConstraints()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

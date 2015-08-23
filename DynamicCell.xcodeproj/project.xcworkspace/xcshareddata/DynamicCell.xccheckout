@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5CE3C02E-22C3-4521-B759-CD88CB29134C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DynamicCell</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2B0AEDAC25872AE4BAF6E7664E84F74783F86E4F</key>
+		<string>https://github.com/jkalias/DynamicCell.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DynamicCell.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2B0AEDAC25872AE4BAF6E7664E84F74783F86E4F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jkalias/DynamicCell.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2B0AEDAC25872AE4BAF6E7664E84F74783F86E4F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2B0AEDAC25872AE4BAF6E7664E84F74783F86E4F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DynamicCell</string>
+		</dict>
+	</array>
+</dict>
+</plist>

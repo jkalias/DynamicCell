@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  DynamicCell
 //
-//  Created by Ioannis Kaliakatsos on 22/08/2015.
-//  Copyright © 2015 Ioannis Kaliakatsos. All rights reserved.
+//  Created by Ioannis Kaliakatsos on 24/08/2015.
+//  Copyright (c) 2015 Ioannis Kaliakatsos. All rights reserved.
 //
 
 import UIKit
