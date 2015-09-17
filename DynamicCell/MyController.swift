@@ -24,7 +24,8 @@ class MyController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(MyCell.identifier, forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(MyCell.identifier, forIndexPath: indexPath) as! MyCell
+        cell.photo = UIImage(named: "photo")
         cell.layoutIfNeeded()
         return cell
     }
