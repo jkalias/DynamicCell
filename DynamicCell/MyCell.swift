@@ -15,65 +15,65 @@ class MyCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .Default, reuseIdentifier: MyCell.identifier)
-        photoImageView = UIImageView(frame: bounds)
+		photoImageView = UIImageView(frame: bounds)
         photoImageView.translatesAutoresizingMaskIntoConstraints = false
         photoImageView.contentMode = .ScaleAspectFit
         contentView.addSubview(photoImageView)
-    }
-    
-    override func updateConstraintsIfNeeded() {
-        super.updateConstraintsIfNeeded()
         
-        let attributes: [NSLayoutAttribute] = [.Leading, .Trailing, .Top, .Bottom]
-        let constraints = attributes.map { attribute in
+        let verticalAttributes: [NSLayoutAttribute] = [.Top, .Bottom, .Leading, .Trailing]
+        let verticalConstraints = verticalAttributes.map {attribute in
             return NSLayoutConstraint(
-                item: self.photoImageView,
+                item: photoImageView,
                 attribute: attribute,
                 relatedBy: .Equal,
-                toItem: self.contentView,
+                toItem: contentView,
                 attribute: attribute,
                 multiplier: 1,
                 constant: 0)
         }
-        addConstraints(constraints)
+        NSLayoutConstraint.activateConstraints(verticalConstraints)
     }
     
-    internal var aspectConstraint : NSLayoutConstraint? {
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        photo = nil
+    }
+    
+    var photo: UIImage? {
+        didSet {
+            if let image = photo, imageView = photoImageView {
+                imageView.image = image
+                aspectConstraint = NSLayoutConstraint(
+                    item: photoImageView,
+                    attribute: .Height,
+                    relatedBy: .Equal,
+                    toItem: photoImageView,
+                    attribute: .Width,
+                    multiplier: image.aspectRatio,
+                    constant: 0)
+            }
+        }
+    }
+    
+    private var aspectConstraint : NSLayoutConstraint? {
         didSet {
             if let previousConstraint = oldValue {
                 photoImageView.removeConstraint(previousConstraint)
             }
             if let newConstraint = aspectConstraint {
                 photoImageView.addConstraint(newConstraint)
+                newConstraint.active = true
             }
         }
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        aspectConstraint = nil
-    }
-    
-    var photo: UIImage? {
-        didSet {
-            if let image = photo, imageView = photoImageView {
-                let aspect = image.size.width / image.size.height
-                aspectConstraint = NSLayoutConstraint(
-                    item: imageView,
-                    attribute: .Width,
-                    relatedBy: .Equal,
-                    toItem: imageView,
-                    attribute: .Height,
-                    multiplier: aspect,
-                    constant: 0.0)
-                imageView.image = image
-            }
-        }
-    }
-    
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
+extension UIImage {
+    var aspectRatio: CGFloat {
+        return size.width == 0 ? 0 : size.height / size.width
+    }
 }
