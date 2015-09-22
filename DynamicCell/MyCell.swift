@@ -11,11 +11,20 @@ import UIKit
 class MyCell: UITableViewCell {
     
     static let identifier = "cell identifier"
-    var photoImageView: UIImageView!
+    private var photoImageView: UIImageView!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .Default, reuseIdentifier: MyCell.identifier)
-		photoImageView = UIImageView(frame: bounds)
+		commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        photoImageView = UIImageView(frame: bounds)
         photoImageView.translatesAutoresizingMaskIntoConstraints = false
         photoImageView.contentMode = .ScaleAspectFit
         contentView.addSubview(photoImageView)
@@ -65,10 +74,6 @@ class MyCell: UITableViewCell {
                 newConstraint.active = true
             }
         }
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 
